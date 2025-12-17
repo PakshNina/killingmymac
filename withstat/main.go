@@ -36,9 +36,10 @@ func main() {
 				fmt.Printf("Количество сборок мусора: %d\n", m.NumGC)
 				lastGC = m.NumGC
 			}
-			fmt.Printf("Куча: %.1fMB, стэк:%.1fMB\n",
+			fmt.Printf("Куча: %.1fMB, Стэк:%.1fMB, Общая память: %.1fMB\n",
 				float64(m.HeapAlloc)/1024/1024,
-				float64(m.StackInuse)/1024/1024)
+				float64(m.StackInuse)/1024/1024,
+				float64(m.Sys)/1024/1024)
 			n = 0
 			time.Sleep(500 * time.Millisecond)
 			if float64(m.HeapAlloc)/1024/1024 > 1000 {

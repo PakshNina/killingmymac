@@ -43,29 +43,22 @@ make build19
 make run19
 ```
 
-Собрать Docker образ с Go 1.24.1:
+Собрать Docker образ с Go 1.12.1:
 
 ```bash
-make build124
+make build112
 ```
 
-Собрать и запустить контейнер с Go 1.24.1 (с ограничением памяти 500MB):
+Собрать и запустить контейнер с Go 1.12.1 (с ограничением памяти 500MB):
 
 ```bash
-make run124
+make run112
 ```
 
 Удалить все Docker образы:
 
 ```bash
 make clean
-```
-
-Изменить лимит памяти при запуске:
-
-```bash
-make run19 MEMORY_LIMIT=1g
-make run124 MEMORY_LIMIT=2g
 ```
 
 ### Без Make
@@ -82,13 +75,13 @@ docker build -t kill-app --build-arg GO_VERSION=1.9.7 -f Dockerfile .
 docker run --rm -p 8080:8080 --memory=500m kill-app
 ```
 
-Собрать образ с Go 1.24.1:
+Собрать образ с Go 1.12.1:
 
 ```bash
-docker build -t normal-app --build-arg GO_VERSION=1.24.1 -f Dockerfile .
+docker build -t normal-app --build-arg GO_VERSION=1.12.1 -f Dockerfile .
 ```
 
-Запустить контейнер с Go 1.24.1 (с ограничением памяти):
+Запустить контейнер с Go 1.12.1 (с ограничением памяти):
 
 ```bash
 docker run --rm -p 8080:8080 --memory=500m normal-app
