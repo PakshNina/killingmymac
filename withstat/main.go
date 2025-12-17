@@ -36,7 +36,7 @@ func main() {
 				fmt.Printf("Количество сборок мусора: %d\n", m.NumGC)
 				lastGC = m.NumGC
 			}
-			fmt.Printf("Memory alloc in heap: %.1fMB, stack in use:%.1fMB\n",
+			fmt.Printf("Куча: %.1fMB, стэк:%.1fMB\n",
 				float64(m.HeapAlloc)/1024/1024,
 				float64(m.StackInuse)/1024/1024)
 			n = 0
