@@ -3,12 +3,12 @@ FROM golang:1.9.7 AS builder
 WORKDIR /app
 
 COPY go.mod ./
-COPY kill ./kill
+COPY withstat ./withstat
 
 RUN CGO_ENABLED=0 GOOS=linux go build \
     -a -installsuffix cgo \
     -o app \
-    ./kill
+    ./withstat
 
 FROM alpine:latest
 
