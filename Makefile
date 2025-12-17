@@ -7,7 +7,7 @@ GO_VERSION_112 = 1.12.1
 PORT = 8080
 MEMORY_LIMIT = 500m
 
-.PHONY: build19 run19 build112 run112 clean clean19 clean112
+.PHONY: build19 run19 build112 run112 clean clean19 clean112 escape
 
 build19: ## Build Go 1.9.7
 	docker build -t $(DOCKER_IMAGE_19) \
@@ -32,3 +32,6 @@ clean112: ## Remove Docker image for Go 1.12.1
 	docker rmi $(DOCKER_IMAGE_112) || true
 
 clean: clean19 clean112 ## Remove all Docker images
+
+escape:
+	go build -gcflags="-m" initial/main.go
