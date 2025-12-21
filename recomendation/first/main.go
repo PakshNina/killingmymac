@@ -6,12 +6,12 @@ type Node struct {
 }
 
 func badLinkedList(n int) *Node {
-	var head Node // ← stack object #1
+	var head Node // первый объект стека
 	current := &head
 
 	for i := 1; i < n; i++ {
-		next := Node{value: i} // ← stack object #i!
-		current.next = &next   // ← putPtr(&next)!
+		next := Node{value: i} // создание i-го объекта стека
+		current.next = &next
 		current = &next
 	}
 
@@ -19,7 +19,7 @@ func badLinkedList(n int) *Node {
 }
 
 func goodArray(n int) []Node {
-	nodes := make([]Node, n) // ← slice header = 1 stack object!
+	nodes := make([]Node, n) // хедер слайса - первый и единственный объект стека.
 
 	for i := range nodes {
 		nodes[i].value = i
