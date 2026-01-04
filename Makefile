@@ -1,16 +1,16 @@
-.PHONY: build19 run19 build124 run124 benchmark_1
+.PHONY: build19 run19 build124 run124 benchmark benchmark_1 benchmark_2 reflect_1
 
 build19:
-	docker build -t kill-app -f Dockerfile19 .
+	docker build --build-arg GO_VERSION=1.9.1 -t kill-app -f Dockerfile .
 
 run19:
-	docker run -p 8080:8080 kill-app
+	docker run --rm -p 8080:8080 --memory=500m kill-app
 
 build124:
-	docker build -t normal-app -f Dockerfile124 .
+	docker build --build-arg GO_VERSION=1.24.1 -t normal-app -f Dockerfile .
 
 run124:
-	docker run -p 8080:8080 normal-app
+	docker run --rm -p 8080:8080 --memory=500m normal-app
 
 benchmark_1:
 	go test -bench=. -benchmem ./recomendation/first/
@@ -20,5 +20,5 @@ benchmark_2:
 
 benchmark: benchmark_1 benchmark_2
 
-reflect_2:
-	go test ./recomendation/second -run=^$ -bench=^$ -gcflags="-m"
+reflect_1:
+	go test ./recomendation/first -run=^$ -bench=^$ -gcflags="-m"

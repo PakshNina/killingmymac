@@ -7,12 +7,6 @@ type BigWithPtr struct {
 	Data [1024]byte  // что-то тяжёлое
 }
 
-// BigNoPtr структура без указателя.
-type BigNoPtr struct {
-	ID   int
-	Data [1024]byte // тот же размер, но без указателя
-}
-
 func useBigWithPtr(n int) int {
 	sum := 0
 	for i := 0; i < n; i++ {
@@ -22,15 +16,6 @@ func useBigWithPtr(n int) int {
 		} else {
 			sum += x.ID
 		}
-	}
-	return sum
-}
-
-func useBigNoPtr(n int) int {
-	sum := 0
-	for i := 0; i < n; i++ {
-		x := BigNoPtr{ID: i}
-		sum += x.ID
 	}
 	return sum
 }

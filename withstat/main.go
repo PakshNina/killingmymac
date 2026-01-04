@@ -27,7 +27,7 @@ func main() {
 	runtime.ReadMemStats(&m)
 	lastGC := m.NumGC
 
-	curr := new(Node)
+	curr := &Node{}
 	var n int
 	for {
 		if n >= 1000000 {
@@ -41,7 +41,7 @@ func main() {
 				float64(m.StackInuse)/1024/1024)
 			n = 0
 			time.Sleep(500 * time.Millisecond)
-			if float64(m.HeapAlloc)/1024/1024 > 1000 {
+			if float64(m.HeapAlloc)/1024/1024 > 2000 {
 				fmt.Printf("Останавливаемся\n")
 				break
 			}
