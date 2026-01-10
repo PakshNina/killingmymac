@@ -2,9 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
-	_ "net/http/pprof"
 	"os"
 	"runtime"
 	"time"
@@ -17,11 +14,6 @@ type Node struct {
 
 func main() {
 	signal := make(chan os.Signal, 1)
-	go func() {
-		if err := http.ListenAndServe("0.0.0.0:8080", nil); err != nil {
-			log.Println("pprof server error:", err)
-		}
-	}()
 
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
