@@ -79,11 +79,5 @@ make benchmark
 Или напрямую через go test:
 
 ```bash
-go test -bench=. -benchtime=50000x ./recomendation/
+go test -bench=. -benchmem -benchtime=50000x ./recomendation/
 ```
-
-### Метрики GC в бенчмарках
-
-Бенчмарки автоматически собирают метрики GC через `runtime/metrics`:
-
-- **gc-total-s** - общее время CPU, потраченное на выполнение задач GC
