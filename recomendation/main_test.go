@@ -1,4 +1,4 @@
-package recomendation
+package main
 
 import (
 	"runtime"
@@ -7,8 +7,7 @@ import (
 )
 
 const (
-	markAssistMetric = "/cpu/classes/gc/mark/assist:cpu-seconds" // Время CPU, которое горутины потратили на помощь GC (маркировка)
-	totalMetric      = "/cpu/classes/gc/total:cpu-seconds"       // Общее время CPU, потраченное на выполнение задач GC
+	totalMetric = "/cpu/classes/gc/total:cpu-seconds" // Общее время CPU, потраченное на выполнение задач GC
 )
 
 func getMetrics() []string {

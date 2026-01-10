@@ -1,4 +1,4 @@
-package recomendation
+package main
 
 // Node объект, хранящий указатель на следующий узел и некую нагрузку.
 type Node struct {

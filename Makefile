@@ -13,4 +13,4 @@ run124:
 	docker run --rm -p 8080:8080 --memory=500m normal-app
 
 benchmark:
-	go test -bench=. -benchtime=50000x ./recomendation/
+	go test -bench=. -benchmem -benchtime=50000x ./recomendation/
