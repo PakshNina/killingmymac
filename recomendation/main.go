@@ -6,7 +6,6 @@ type Node struct {
 	payload [64]byte
 }
 
-// badManyStackObjects создает много объектов стека.
 func badManyStackObjects(n int) interface{} {
 	var head Node
 	current := &head
@@ -20,9 +19,8 @@ func badManyStackObjects(n int) interface{} {
 	return &head
 }
 
-// goodOneStackObject: создает один объект (слайс) на стеке.
 func goodOneStackObject(n int) interface{} {
-	nodes := make([]Node, n) // хедер слайса - первый и единственный объект стека
+	nodes := make([]Node, n)
 
 	for i := range nodes {
 		if i > 0 {
